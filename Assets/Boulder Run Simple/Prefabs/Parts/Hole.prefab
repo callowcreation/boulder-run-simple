@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4233662120612090}
+  - component: {fileID: 114040198711361808}
   - component: {fileID: 114239454262075490}
   m_Layer: 0
   m_Name: Hole
@@ -179,7 +180,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486666696070432}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.1, z: 1}
@@ -196,6 +197,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114040198711361808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1405333038937500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74db8121d9bf7c745b8634912538e6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114239454262075490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,4 +219,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27caed6289b06784997090ae4d69d50a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PartType: 1
+  m_PartColor: {r: 1, g: 1, b: 1, a: 1}
+  m_InfluenceForces: {x: 0, y: 0, z: 0}

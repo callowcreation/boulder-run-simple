@@ -3,11 +3,9 @@ using UnityEngine;
 
 namespace RadialRays
 {
-
     [System.Serializable]
     public struct RaysCheck
     {
-
         public static Vector3 EulerAngle(float angle)
         {
             //http://answers.unity3d.com/questions/362763/raycast-over-arc.html

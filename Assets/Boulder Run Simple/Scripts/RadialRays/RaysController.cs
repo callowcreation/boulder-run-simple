@@ -3,14 +3,6 @@ using UnityEngine;
 
 namespace RadialRays
 {
-    public class GroundedArgs : EventArgs
-    {
-        public readonly RaycastHit hit;
-        public GroundedArgs(RaycastHit hit)
-        {
-            this.hit = hit;
-        }
-    }
     public class RaysController : MonoBehaviour
     {
 
@@ -28,12 +20,15 @@ namespace RadialRays
         int m_Step = 1;
 
         Transform m_Trans = null;
+        Rigidbody m_Rigidbody = null;
 
         public RaysCheck groundChecker { get { return m_RaysCheck; } }
+        public Rigidbody rb { get { return m_Rigidbody; } }
 
         void Awake()
         {
             m_Trans = transform;
+            m_Rigidbody = GetComponent<Rigidbody>();
             m_RaysCheck.InitIfNeeded();
         }
 

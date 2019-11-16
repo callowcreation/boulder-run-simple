@@ -1,6 +1,4 @@
-﻿using BoulderRun.Map;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace BoulderRun.Player
@@ -14,7 +12,6 @@ namespace BoulderRun.Player
         int m_OffsetZ = 0;
 
         Vector3 m_Velocity;
-
 
         public Vector3 startPosition { get; private set; }
         public Quaternion startRotation { get; private set; }
@@ -31,17 +28,6 @@ namespace BoulderRun.Player
             startPosition = transform.position;
             startRotation = transform.rotation;
             m_CanControl = true;
-        }
-
-        void OnEnable()
-        {
-            PlayerOutOfBounds.OnPlayerInHole -= PlayerOutOfBounds_OnPlayerInHole;
-            PlayerOutOfBounds.OnPlayerInHole += PlayerOutOfBounds_OnPlayerInHole;
-        }
-
-        void OnDisable()
-        {
-            PlayerOutOfBounds.OnPlayerInHole -= PlayerOutOfBounds_OnPlayerInHole;
         }
 
         void Update()
@@ -66,7 +52,7 @@ namespace BoulderRun.Player
             }
         }
 
-        void PlayerOutOfBounds_OnPlayerInHole(PartInfo partInfo)
+        public void PlayerResetValues()
         {
             if(m_CanControl)
             {

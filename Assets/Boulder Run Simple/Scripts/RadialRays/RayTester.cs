@@ -2,7 +2,6 @@
 
 namespace RadialRays
 {
-
     [System.Serializable]
     struct RayTester
     {
