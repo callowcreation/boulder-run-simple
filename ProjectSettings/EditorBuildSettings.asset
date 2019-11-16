@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Boulder Run Simple/Scenes/Models 3.unity
+    guid: 071e5e0f3b14c75469877e4181a093d8

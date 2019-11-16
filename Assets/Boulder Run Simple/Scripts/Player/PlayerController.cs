@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace BoulderRun.Player
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField]
@@ -14,15 +15,18 @@ namespace BoulderRun.Player
 
         Vector3 m_Velocity;
 
-        RadialRays.RaysController m_RaysController = null;
 
         public Vector3 startPosition { get; private set; }
         public Quaternion startRotation { get; private set; }
 
         bool m_CanControl = false;
 
+        Rigidbody m_Rigidbody = null;
+        RadialRays.RaysController m_RaysController = null;
+
         void Awake()
         {
+            m_Rigidbody = GetComponent<Rigidbody>();
             m_RaysController = GetComponent<RadialRays.RaysController>();
             startPosition = transform.position;
             startRotation = transform.rotation;
@@ -56,9 +60,9 @@ namespace BoulderRun.Player
                     }
                 }
                 m_OffsetZ = Mathf.Clamp(m_OffsetZ, -1, 1);
-                Vector3 targetPosition = transform.position;
+                Vector3 targetPosition = m_Rigidbody.position;
                 targetPosition.z = m_OffsetZ;
-                transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref m_Velocity, m_SmoothTime);
+                m_Rigidbody.position = Vector3.SmoothDamp(m_Rigidbody.position, targetPosition, ref m_Velocity, m_SmoothTime);
             }
         }
 
