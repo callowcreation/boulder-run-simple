@@ -24,6 +24,8 @@ namespace RadialRays
         int m_MaxAngle;
         [SerializeField]
         bool m_Grounded;
+        [SerializeField]
+        int m_Contacts;
         
         List<RayTester> m_RayTesters;
 
@@ -34,6 +36,7 @@ namespace RadialRays
         }
 
         public bool grounded { get { return m_Grounded; } }
+        public int contacts { get { return m_Contacts; } }
 
         internal void InitIfNeeded()
         {
@@ -70,15 +73,16 @@ namespace RadialRays
             }
         }
 
-
         internal void CheckForGround(Transform trans, System.Action<RaycastHit> groundedAction)
         {
             m_Grounded = false;
+            m_Contacts = 0;
             foreach (var groundTester in m_RayTesters)
             {
                 if (groundTester.CheckGrounded(trans))
                 {
                     m_Grounded = true;
+                    m_Contacts++;
                     groundedAction.Invoke(groundTester.raycastHit);
                 }
             }

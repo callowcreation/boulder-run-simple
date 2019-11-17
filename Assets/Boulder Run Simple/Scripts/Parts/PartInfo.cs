@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BoulderRun.Parts
 {
@@ -8,6 +6,7 @@ namespace BoulderRun.Parts
     {
         [SerializeField]
         Color m_PartColor = Color.black;
+
         [SerializeField]
         Vector3 m_InfluenceForces = Vector3.zero;
 

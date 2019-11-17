@@ -1,17 +1,12 @@
-﻿using RadialRays;
+﻿using UnityEngine;
 
 namespace BoulderRun.Parts
 {
-    public class GoalBehaviour : PartBehaviour
+    public class GoalBehaviour : Part
     {
-        protected override void RaysController_OnGrounded(object sender, GroundedArgs groundedArgs)
+        protected override void OnGrounded(Rigidbody rb)
         {
-            RaysController raysController = sender as RaysController;
-            PartInfo partInfo = groundedArgs.hit.collider.GetComponentInParent<PartInfo>();
-            if(base.partInfo == partInfo)
-            {
-                raysController.rb.velocity = partInfo.influenceForces;
-            }
+            rb.velocity = partInfo.influenceForces;
         }
     }
 } 

@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using RadialRays;
+using System.Collections;
 using UnityEngine;
 
 namespace BoulderRun.Player
 {
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody), typeof(RaysController))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField]
@@ -19,14 +20,14 @@ namespace BoulderRun.Player
         bool m_CanControl = false;
 
         Rigidbody m_Rigidbody = null;
-        RadialRays.RaysController m_RaysController = null;
+        RaysController m_RaysController = null;
 
         void Awake()
         {
             m_Rigidbody = GetComponent<Rigidbody>();
-            m_RaysController = GetComponent<RadialRays.RaysController>();
-            startPosition = transform.position;
-            startRotation = transform.rotation;
+            m_RaysController = GetComponent<RaysController>();
+            startPosition = m_Rigidbody.position;
+            startRotation = m_Rigidbody.rotation;
             m_CanControl = true;
         }
 
@@ -63,10 +64,13 @@ namespace BoulderRun.Player
 
         IEnumerator ResetValues()
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1.0f);
 
-            transform.position = startPosition;
-            transform.rotation = startRotation;
+            m_Rigidbody.velocity = Vector3.zero;
+            m_Rigidbody.angularVelocity = Vector3.zero;
+
+            m_Rigidbody.position = startPosition;
+            m_Rigidbody.rotation = startRotation;
             m_OffsetZ = 0;
 
             m_CanControl = true;

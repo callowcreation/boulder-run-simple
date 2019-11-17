@@ -55,6 +55,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4745161048788996}
+  - component: {fileID: 114981615227464394}
   - component: {fileID: 114375127832313572}
   m_Layer: 0
   m_Name: Goal
@@ -221,4 +222,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27caed6289b06784997090ae4d69d50a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PartType: 5
+  m_PartColor: {r: 0, g: 0, b: 1, a: 1}
+  m_InfluenceForces: {x: 0, y: 0, z: 0}
+--- !u!114 &114981615227464394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1837402564690830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f729619f25f90c84586adf6a38bc14a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
